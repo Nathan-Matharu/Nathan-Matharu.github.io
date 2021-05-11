@@ -1,0 +1,28 @@
+<header class="site-header">
+
+  <div class="wrapper" style="margin-top:20px;"
+
+    <a class="site-title" href="{{ site.baseurl }}/"><img src="https://Nathan-Matharu.github.io/img/Website.png" style="max-width:50%"></a>
+<!--Not entirely sure what the above line does-->
+
+    <nav class="site-nav"> <!--This is what allows you to navigate the webiste?-->
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">  <!--Is this the size of the navbox?-->
+          <!-- Valerolab uses a bunch of path fills here-->
+        </svg>
+      </a>
+
+      <div class="trigger">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}  <!-- I'm not sure what these curly braces mean-->
+            {% if my_page.menu =='main' %}
+          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+
+  </div>
+
+</header>
