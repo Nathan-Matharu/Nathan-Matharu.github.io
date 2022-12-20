@@ -1,3 +1,1 @@
----
-Layout: Page
-Title:
+# This is the Second Page
