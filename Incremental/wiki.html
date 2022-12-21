@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Placeholder Incremental Wiki</title>
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+  <link rel="icon" href="../Nathan-light.ico" type="images/x-icon" media="(prefers-color-scheme:dark)">
+  <link rel="icon" href="../Nathan.ico" type="images/x-icon" media="(prefers-color-scheme:light)">
+  <link rel="icon" href="../Nathan.ico" type="images/x-icon" media="(prefers-color-scheme:no-preference)">
+  <!-- Need some css stuff here -->
+</head>
+<body>
+  <style>
+    .loading { /* Makes a circular loading cursor*/
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height 120px;
+      animation spin 2s linear infinite; /* does keyframe spin over 2 seconds forever */
+    }
+    /* Can do a lds-dual-ring for cooler loader*/
+    @@keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</body>
