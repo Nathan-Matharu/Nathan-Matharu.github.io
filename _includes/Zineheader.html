@@ -1,0 +1,31 @@
+<header class="site-header">
+
+  <div class="wrapper" style="margin-top:20px;">
+
+    <a class="site-title" href="{{ site.baseurl }}/pages/zine/Zine">
+      <img src="https://Nathan-Matharu.github.io/img/Truth_or_Worm.png" style="max-width:60px">
+      <span class="title">TRUTH OR WORM</span>  
+    </a>
+    <!--Creates an image in the top left that links to the homepage of the website-->
+
+    <nav class="site-nav"> <!--This is what allows you to navigate the webiste?-->
+
+      <div class="trigger"> <!--Applies css style with css rules-->
+        {% for my_page in site.pages %} 
+          {% if my_page.title %}  
+            {% if my_page.menu == 'zine' %}
+              <!--DEBUG: my_page.menu is main-->
+              <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        <!--
+        <a class="page-link" href="">Homepage</a>
+        <a class="page-link" href="/Pages/The_Second_Page.html">The Second Page</a>
+        -->
+      </div>
+    </nav>
+
+  </div>
+
+</header>
