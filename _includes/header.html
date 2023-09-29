@@ -14,11 +14,11 @@
         </svg>
       </a>
 
-      <div class="trigger"> <!--Applies css style with css rules-->
+      <div class="trigger"> <!--Applies css style with css rules--> 
         {% for my_page in site.pages %} <!--loop construct-->
           {% if my_page.title %}  
             {% if my_page.menu =='main' %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+              <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
             {% endif %}
           {% endif %}
         {% endfor %}

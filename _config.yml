@@ -5,6 +5,7 @@ title: Welcome to Nathan Matharu's Website!
 description: I am learning how to develop webpages using this website!
 baseurl: "" #the subpath for your site, e.g. /blog
 url: "Nathan.Matharu.github.io" #Base hostname and protocol for the site
+layout: page.html
 
 # Build Settings
 markdown: kramdown
