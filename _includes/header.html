@@ -18,16 +18,16 @@
 
       <div class="trigger"> <!--Applies css style with css rules-->
         {% comment %} 
-        {% for my_page in site.pages %} <!--loop construct-->
+        {% for my_page in site.pages %} 
           {% if my_page.title %}  
-            {% if my_page.menu =='main' %}
+            {% if my_page.menu == 'main' %}
               <!--DEBUG: my_page.menu is main-->
               <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
             {% endif %}
           {% endif %}
         {% endfor %}
         {% endcomment %}
-        <a class="page-link" href="/Pages/The_Second_Page.md">The Second Page</a>
+        <a class="page-link" href="/Pages/The_Second_Page.html">The Second Page</a>
       </div>
     </nav>
 
