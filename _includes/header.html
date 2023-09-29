@@ -17,7 +17,6 @@
       {% endcomment %}
 
       <div class="trigger"> <!--Applies css style with css rules-->
-        {% comment %} 
         {% for my_page in site.pages %} 
           {% if my_page.title %}  
             {% if my_page.menu == 'main' %}
@@ -26,7 +25,7 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-        {% endcomment %}
+        <a class="page-link" href="">Homepage</a>
         <a class="page-link" href="/Pages/The_Second_Page.html">The Second Page</a>
       </div>
     </nav>
