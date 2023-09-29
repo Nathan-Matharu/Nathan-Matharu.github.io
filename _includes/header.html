@@ -2,8 +2,8 @@
 
   <div class="wrapper" style="margin-top:20px;"
 
-    <a class="site-title" href="{{ site.baseurl }}/"><img src="https://Nathan-Matharu.github.io/img/Website.png" style="max-width:50%"></a>
-<!--Not entirely sure what the above line does-->
+    <a class="site-title" href="{{ site.baseurl }}/"><img src="https://Nathan-Matharu.github.io/img/Website.png" style="max-width:60px"></a>
+<!--Creates an image in the top left that links to the homepage of the website-->
 
     <nav class="site-nav"> <!--This is what allows you to navigate the webiste?-->
       <a href="#" class="menu-icon">
@@ -12,9 +12,9 @@
         </svg>
       </a>
 
-      <div class="trigger">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}  <!-- I'm not sure what these curly braces mean-->
+      <div class="trigger"> <!--Applies css style with css rules-->
+        {% for my_page in site.pages %} <!--loop construct-->
+          {% if my_page.title %}  
             {% if my_page.menu =='main' %}
           <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
             {% endif %}
