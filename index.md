@@ -1,6 +1,6 @@
 ---
 layout: page
 title: Homepage
-menu: main
+menu: Base
 ---
 

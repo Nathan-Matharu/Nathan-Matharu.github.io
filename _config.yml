@@ -7,8 +7,8 @@ baseurl: "" #the subpath for your site, e.g. /blog
 url: "Nathan.Matharu.github.io" #Base hostname and protocol for the site
 layout: page.html
 
+plugins_dir: _plugins
+
 # Build Settings
 markdown: kramdown
 highlighter: rouge
-
-plugins:
