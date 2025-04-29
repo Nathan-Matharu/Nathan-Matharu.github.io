@@ -1,6 +1,47 @@
 /* _includes/styles.css */
 
-.wrapper{
+body{
+    
+    /* Fallback color in case the image doesn't load */
+    background-color: #33495f; /* A dark blueish color that might match a night sky */
+
+    /* --- Background Image Properties --- */
+
+    /* The image itself. Path is relative to your CSS file, or site root if starting with / */
+    background-image: url('/assets/img/stars.avif'); /* Valentina Ivanova from Unsplash  https://unsplash.com/photos/a-night-sky-filled-with-lots-of-stars-9yvB5LigRy4*/
+
+    /* Control if/how the image repeats */
+    /* background-repeat: repeat;     /* Repeats horizontally and vertically (tessellates) */
+    /* background-repeat: no-repeat;  /* Shows the image only once */
+    background-repeat: repeat; /* YES, you can tessellate! */
+
+
+    /* Control the size of the background image */
+    /* background-size: auto;    /* Use the natural size of the image (good for repeating tiles) */
+    /* background-size: cover;   /* Scale image to cover the *entire* viewport without distortion (might crop) */
+    /* background-size: contain; /* Scale image to fit *within* the viewport without distortion (might leave space) */
+    background-size: auto; /* Use natural size if repeating a tile */
+
+
+    /* Control the starting position of the image */
+    /* background-position: top left;    /* Default starting corner */
+    /* background-position: center center; /* Center the single image in the viewport */
+    background-position: top left; /* Start repeating from the top left */
+
+
+    /* Control if the image scrolls with content or stays fixed */
+    /* background-attachment: scroll; /* Default: scrolls with the page content */
+    /* background-attachment: fixed;  /* Image stays put while the page content scrolls over it */
+    background-attachment: fixed; /* Often desired for full-page backgrounds */
+
+
+    /* --- Shorthand Property --- */
+    /* You can combine many of the above into a single 'background' property: */
+    /* background: #33495f url('/assets/images/stars-background.jpg') repeat top left fixed; */
+
+
+    /* Basic margin/padding reset */
+    margin: 0;
     padding: 0;
 }
 .site-nav{
@@ -17,14 +58,45 @@
     margin-bottom: 0px; /* Adjust this value to control the spacing */
     border-radius: 10px; /* Adjust this value to control the roundness */
 }
-  
+
 .page-link:hover {
     background-color: #2d2a2e; /* logo color: 3c3941 */
 }
 
 .wrapper {
-    background: linear-gradient(to bottom, #f7f7f7, #e5e5e5);
+    /* 1. Set a maximum width for the content block */
+    /* Choose a value that feels comfortable for reading. */
+    /* Common values are between 700px and 1000px. */
+    /* Using max-width is good for responsiveness - it won't force a width wider than the screen */
+    max-width: 800px; /* Adjust this value as you like */
+
+    /* 2. Center the block horizontally */
+    /* This pushes equal margin on the left and right sides */
+    margin-left: auto;
+    margin-right: auto;
+    /* Shorthand: margin: 0 auto; */
+
+    /* 3. Add some padding on the sides *inside* the container */
+    /* This prevents the text from touching the very edge of the content block, */
+    /* especially on smaller screens where max-width hasn't kicked in yet. */
+    padding-left: 20px; /* Adjust padding as needed */
+    padding-right: 20px; /* Adjust padding as needed */
+    /* Or use a single padding rule: padding: 0 20px; */
+
+    /* Optional: Add some vertical padding if needed */
+    /* padding-top: 30px; */
+    /* padding-bottom: 30px; */
+
+    /* Optional: Give it a background color to look more like paper */
+    background-color: rgba(200,205,205,0.95);
+
+    /* Optional: Add a subtle box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
 }
+/* e5e5e5 */
+/* f7f7f7 */
+
 
 .site-title {
     display: inline-block;
@@ -38,4 +110,53 @@
     margin-left: 10px;
     text-decoration: none;
     font-weight: bold;
+}
+
+
+.profile-figure {
+    display: block; /* Ensure it behaves like a block */
+    margin: 0 auto; /* Center the entire figure block */
+
+    /* --- Control the width of the figure (and thus the bio text) --- */
+    /* Option 1: Set a fixed max-width */
+    max-width: 350px; /* Adjust this value as needed. Make it slightly larger than the image width */
+                       /* if you want padding, or exactly the image width if you want it snug. */
+
+    /* Option 2: Set a percentage width (less common for a fixed image size) */
+    /* width: 80%; */
+
+    /* Add some spacing above and below the figure if desired */
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    /* Optional: Add padding or a border to the figure */
+    /* padding: 10px; */
+    /* border: 1px solid #ccc; */
+}
+
+  /* Style the image within the figure */
+.profile-figure img {
+    display: block; /* Make the image a block element */
+    margin: 0 auto; /* Center the image horizontally within the figure */
+
+    /* Ensure the image doesn't exceed the container width */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    
+    border-radius: 5px;
+
+    /* Set the image width (optional, max-width on the figure might be enough) */
+    /* width: 300px; /* Use CSS width instead of HTML height */
+}
+
+  /* Style the biography text (the <figcaption> element) */
+.profile-figure .profile-bio {
+    margin-top: 10px; /* Add space between the image and the text */
+    text-align: center; /* Center the lines of text within the bio block */
+
+    /* --- The width is inherited from the parent (.profile-figure) --- */
+    /* Add any other text styles */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
 }

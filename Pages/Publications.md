@@ -1,0 +1,12 @@
+---
+layout: page
+title: Publications
+menu: main
+---
+## Abstracts
+Matharu, N., Lao, J., Iwamoto, A., Helton, A., Fanelle, T., Erwin, A., Valero-Cuevas, F.J. (2022). __[Rigid robotic transformations can approximate the kinematics of soft fingers with 'bones'](/assets/publications/2022_Nathan_SFN_Semi_Soft_Finger.pdf)__. Society For Neuroscience Annual Meeting, San Diego, CA, Nov 12-16, 2022.
+- Our research explored the kinematic modeling and control of semi-soft robotic fingers, combining rigid segments with soft material to better mimic biological object manipulation. We designed a 13cm tendon-driven semi-soft finger with three 4 cm rigid segments embedded in silicone joints and compared its performance against a traditional rigid finger model. Using DeepLabCut motion tracking and linear regression analysis, we found that while the finger achieved perfect endpoint prediction, the semi-soft finger’s kinematic predictions explained 69% of the variance. These findings demonstrate that semi-soft fingers, though still imprecise, can one day be integrated with established control methods for rigid systems.
+ 
+Matharu, N., Lao, J., Fanelle, T., Raja, S., Valero-Cuevas, F.J (2023). __[Rigid Robotic Transformations with Variable Link Lengths Can Approximate The Kinematics of Soft Fingers with ‘Bones’](/assets/publications/2023_Nathan_BMES_Semi_Soft_Finger.pdf)__. Biomedical Engineering Society Annual Meeting, Seattle, WA, October 11-14, 2023.
+- Building on last year’s research, we aimed to enhance the traditional kinematic model for better prediction of the fingertip location in semi-soft robotic fingers. We designed semi-soft fingers with varying rigid segment lengths inserted into flexible PVC tubes, creating a gradient from softer to harder fingers. Our findings revealed that while traditional rigid kinematics become more accurate with harder fingers, incorporating the strength and compression of the soft material significantly improved prediction accuracy. The adjustable kinematic model reduced prediction errors by up to 74%, achieving accuracy within one centimeter. This demonstrates that a kinematic model accounting for variable link lengths can precisely predict the fingertip location of semi-soft robotic fingers, paving the way for more controllable and compliant robotic hands. 
+
