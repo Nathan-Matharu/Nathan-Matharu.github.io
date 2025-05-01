@@ -85,7 +85,7 @@ body{
 
     /* Optional: Add some vertical padding if needed */
     /* padding-top: 30px; */
-    /* padding-bottom: 30px; */
+    padding-bottom: 15px;
 
     /* Optional: Give it a background color to look more like paper */
     background-color: rgba(200,205,205,0.95);
