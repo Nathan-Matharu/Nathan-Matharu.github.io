@@ -1,0 +1,36 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/\/$/, ""); // remove trailing slash
+
+const zineNavItems = [
+  { href: "/", label: "Main Site" },
+  { href: "/zine", label: "Zine Home" },
+  { href: "/zine/entry", label: "Page of the Day" }
+];
+---
+
+<header class="site-header" id="zine-header">
+  <div class="wrapper">
+    <a class="site-title" href="/zine" id="zine-logo-link">
+      <img src="/assets/img/Truth_or_Worm.png" alt="Zine Logo" style="max-width:45px" />
+      <span class="title">TRUTH OR WORM</span>  
+    </a>
+
+    <nav class="site-nav" id="zine-navigation">
+      <div class="trigger">
+        {zineNavItems.map(item => {
+          const isActive = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
+          return (
+            <a 
+              class={`page-link ${isActive ? 'active' : ''}`} 
+              href={item.href}
+              id={`zine-link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  </div>
+</header>

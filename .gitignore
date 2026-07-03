@@ -1,5 +1,18 @@
+# Astro build and dependency directories
+.astro/
+dist/
+node_modules/
 _site/
-Gemfile
-Gemfile.lock
-assets/img/Website - Copy.xcf
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Exclusions
 assets/img/Website - Copy.xcf
