@@ -1,0 +1,36 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/\/$/, ""); // remove trailing slash
+
+const navItems = [
+  { href: "/", label: "Homepage" },
+  { href: "/projects", label: "Projects" },
+  { href: "/publications", label: "Publications" }
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/" id="logo-link">
+      <img src="/assets/img/Website.png" alt="Nathan Logo" style="max-width:45px" />
+      <span class="title">Nathan's Website</span>  
+    </a>
+
+    <nav class="site-nav" id="main-navigation">
+      <div class="trigger">
+        {navItems.map(item => {
+          const isActive = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
+          return (
+            <a 
+              class={`page-link ${isActive ? 'active' : ''}`} 
+              href={item.href}
+              id={`nav-link-${item.label.toLowerCase()}`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  </div>
+</header>

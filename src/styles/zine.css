@@ -1,0 +1,151 @@
+/* src/styles/zine.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  --zine-bg: #1a1a1a;
+  --zine-paper: #f4efe2; /* Vintage warm cream paper */
+  --zine-ink: #111111;
+  --zine-accent: #e11d48; /* Crimson red */
+  
+  --font-zine-heading: 'Space Grotesk', sans-serif;
+  --font-zine-body: 'Courier Prime', monospace;
+}
+
+body {
+  background-color: var(--zine-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: #eeeeee;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-zine-body);
+}
+
+.wrapper {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--zine-paper);
+  color: var(--zine-ink);
+  box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.9), 0px 0px 20px rgba(0, 0, 0, 0.5);
+  border: 4px solid var(--zine-ink);
+  border-radius: 2px;
+  transform: rotate(-0.5deg); /* Subtle fanzine skew */
+  transition: transform 0.3s ease;
+}
+
+.wrapper:hover {
+  transform: rotate(0deg);
+}
+
+/* Links */
+a {
+  color: var(--zine-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  background: var(--zine-ink);
+  color: var(--zine-paper);
+  text-decoration: none;
+}
+
+/* Header & Nav */
+.site-header {
+  border-bottom: 4px solid var(--zine-ink);
+  background: var(--zine-paper);
+  color: var(--zine-ink);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .wrapper {
+  margin: 0 auto;
+  padding: 15px 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-zine-heading);
+  font-weight: 700;
+  color: var(--zine-ink);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.site-title img {
+  border: 2px solid var(--zine-ink);
+  max-width: 50px;
+}
+
+/* Navigation Links */
+.site-nav .trigger {
+  display: flex;
+  gap: 10px;
+}
+
+.page-link {
+  font-family: var(--font-zine-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  border: 2px solid var(--zine-ink);
+  color: var(--zine-ink);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: 3px 3px 0px 0px var(--zine-ink);
+  transition: all 0.1s ease;
+}
+
+.page-link:hover, .page-link.active {
+  background: var(--zine-ink);
+  color: var(--zine-paper);
+  box-shadow: 0px 0px 0px 0px var(--zine-ink);
+  transform: translate(3px, 3px);
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-zine-heading);
+  color: var(--zine-ink);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 4px solid var(--zine-ink);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  background: var(--zine-ink);
+  color: var(--zine-paper);
+  display: inline-block;
+  padding: 2px 8px;
+  margin-top: 1.5em;
+}
+
+/* Zine Entry specific styles */
+.post-content {
+  margin-top: 25px;
+  font-size: 1.1rem;
+}

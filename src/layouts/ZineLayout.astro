@@ -1,0 +1,41 @@
+---
+import ZineHeader from '../components/ZineHeader.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/zine.css';
+
+const { frontmatter, title } = Astro.props;
+const pageTitle = frontmatter?.title || title || "Truth Or Worm Zine";
+const pageDescription = frontmatter?.description || "Welcome to TRUTH OR WORM Zine";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    
+    <!-- Favicon configuration -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/Nathan-light.ico" type="image/x-icon" media="(prefers-color-scheme:dark)" />
+    <link rel="icon" href="/Nathan.ico" type="image/x-icon" media="(prefers-color-scheme:light)" />
+</head>
+<body>
+    <ZineHeader />
+    <main class="page-content" id="zine-content">
+        <div class="wrapper">
+            {frontmatter?.title && (
+              <header class="post-header">
+                <h1 class="post-title" id="zine-main-heading">{frontmatter.title}</h1>
+              </header>
+            )}
+            <div class="post-content">
+                <slot />
+            </div>
+        </div>
+    </main>
+    <Footer />
+</body>
+</html>
