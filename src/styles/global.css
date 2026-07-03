@@ -34,6 +34,9 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Scrollbar Customization */
@@ -301,6 +304,55 @@ h3 {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+/* Webring Styles */
+.webring-container {
+  margin: 30px auto 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.webring-container h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.webring-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.95rem;
+}
+
+.webring-links .separator {
+  color: var(--glass-border);
+}
+
+.webring-links a {
+  color: var(--accent-color);
+  font-weight: 500;
+  border-bottom: 1px dashed transparent;
+  padding-bottom: 2px;
+}
+
+.webring-links a:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 /* Responsive Rules */

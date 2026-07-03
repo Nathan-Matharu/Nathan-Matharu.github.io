@@ -3,12 +3,79 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer" id="site-footer">
+  <div class="webring-container">
+    <h4>Our Webring</h4>
+    <div class="webring-links">
+      <a id="webring-prev" href="#">Loading previous...</a>
+      <span class="separator">|</span>
+      <a id="webring-next" href="#">Loading next...</a>
+    </div>
+  </div>
+
   <div class="footer-socials">
     <a href="https://github.com/Nathan-Matharu" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="footer-social-github">
       <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-        <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192.4 888.4 370.4 947.7c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39- .6-76.6-36.1 7.8-43.7-17.4-43.7-17.4-29.4-74.7-71.8-94.6-71.8-94.6-35.7-24.4 2.7-23.9 2.7-23.9 39.5 2.8 60.3 40.5 60.3 40.5 35.1 60.1 92.1 42.7 114.5 32.7 3.6-25.4 13.7-42.7 24.9-52.5-287.5-32.7-589.7-143.7-589.7-639.9 0-141.4 50.5-257 133.3-347.6-13.3-32.7-57.7-164.4 12.7-342.9 0 0 108.7-34.8 356.1 132.7 103.3-28.7 214.1-43 324.1-43.5 110 .5 220.8 14.8 324.1 43.5 247-167.5 355.7-132.7 355.7-132.7 70.6 178.5 26.2 310.2 12.9 342.9 82.8 90.6 133.2 206.2 133.2 347.6 0 497.4-302.6 606.8-591.1 638.9 46.4 40 87.8 119 87.8 240.1 0 173.4-1.6 313.2-1.6 355.7 0 12 8 26.1 30.8 21.6C831.7 888.2 960 720.9 960 523.5 960 276.4 759.7 76.3 511.6 76.3z"></path>
+        <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192.4 888.4 370.4 947.7c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-.6-76.6-36.1 7.8-43.7-17.4-43.7-17.4-29.4-74.7-71.8-94.6-71.8-94.6-35.7-24.4 2.7-23.9 2.7-23.9 39.5 2.8 60.3 40.5 60.3 40.5 35.1 60.1 92.1 42.7 114.5 32.7 3.6-25.4 13.7-42.7 24.9-52.5-287.5-32.7-589.7-143.7-589.7-639.9 0-141.4 50.5-257 133.3-347.6-13.3-32.7-57.7-164.4 12.7-342.9 0 0 108.7-34.8 356.1 132.7 103.3-28.7 214.1-43 324.1-43.5 110 .5 220.8 14.8 324.1 43.5 247-167.5 355.7-132.7 355.7-132.7 70.6 178.5 26.2 310.2 12.9 342.9 82.8 90.6 133.2 206.2 133.2 347.6 0 497.4-302.6 606.8-591.1 638.9 46.4 40 87.8 119 87.8 240.1 0 173.4-1.6 313.2-1.6 355.7 0 12 8 26.1 30.8 21.6C831.7 888.2 960 720.9 960 523.5 960 276.4 759.7 76.3 511.6 76.3z"></path>
       </svg>
     </a>
   </div>
   <p class="copyright">&copy; {currentYear} Nathan Matharu. All rights reserved.</p>
 </footer>
+
+<script>
+  const DATA_URL = "https://raw.githubusercontent.com/Nathan-Matharu/Web-Ring/main/webring.json";
+
+  async function initWebring() {
+    try {
+      const response = await fetch(DATA_URL);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch webring data: ${response.statusText}`);
+      }
+      const sites = await response.json();
+      if (!Array.isArray(sites) || sites.length === 0) {
+        return;
+      }
+      
+      // Get the current site's URL origin (e.g., "https://matharu.work")
+      const currentOrigin = window.location.origin.toLowerCase();
+      
+      // Find the index of the current site in the webring array
+      const currentIndex = sites.findIndex(site => {
+        if (!site || !site.url) return false;
+        const siteUrl = site.url.toLowerCase();
+        return siteUrl.includes(currentOrigin) || currentOrigin.includes(siteUrl);
+      });
+      
+      let prevSite, nextSite;
+
+      if (currentIndex === -1) {
+        console.log("This site isn't registered in the webring layout yet. Using default links.");
+        // Fallback: If not found, use first and last
+        prevSite = sites[sites.length - 1];
+        nextSite = sites[0];
+      } else {
+        // Math to handle wrapping around the array seamlessly
+        const prevIndex = (currentIndex - 1 + sites.length) % sites.length;
+        const nextIndex = (currentIndex + 1) % sites.length;
+        prevSite = sites[prevIndex];
+        nextSite = sites[nextIndex];
+      }
+
+      // Inject the links into the HTML containers
+      const prevEl = document.getElementById("webring-prev");
+      const nextEl = document.getElementById("webring-next");
+      if (prevEl && nextEl) {
+        prevEl.href = prevSite.url;
+        prevEl.innerText = `← ${prevSite.name}`;
+        nextEl.href = nextSite.url;
+        nextEl.innerText = `${nextSite.name} →`;
+      }
+      
+    } catch (error) {
+      console.error("Error loading webring data:", error);
+    }
+  }
+
+  // Astro scripts run after the DOM is ready by default
+  initWebring();
+</script>
