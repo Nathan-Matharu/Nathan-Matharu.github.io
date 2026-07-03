@@ -25,6 +25,16 @@ const currentYear = new Date().getFullYear();
 <script>
   const DATA_URL = "https://raw.githubusercontent.com/Nathan-Matharu/Web-Ring/main/webring.json";
 
+  // Helper to ensure URLs are absolute so they do not resolve relative to the current site path
+  function formatAbsoluteUrl(url) {
+    if (!url) return "#";
+    const cleanUrl = url.trim();
+    if (!/^https?:\/\//i.test(cleanUrl) && !cleanUrl.startsWith("//")) {
+      return "https://" + cleanUrl;
+    }
+    return cleanUrl;
+  }
+
   async function initWebring() {
     try {
       const response = await fetch(DATA_URL);
@@ -65,9 +75,9 @@ const currentYear = new Date().getFullYear();
       const prevEl = document.getElementById("webring-prev");
       const nextEl = document.getElementById("webring-next");
       if (prevEl && nextEl) {
-        prevEl.href = prevSite.url;
+        prevEl.href = formatAbsoluteUrl(prevSite.url);
         prevEl.innerText = `← ${prevSite.name}`;
-        nextEl.href = nextSite.url;
+        nextEl.href = formatAbsoluteUrl(nextSite.url);
         nextEl.innerText = `${nextSite.name} →`;
       }
       
