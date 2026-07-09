@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  class?: string;
+  width?: string;
+  height?: string;
+}
+
+const { src, class: className, width, height } = Astro.props;
+---
+
+<video 
+  src={src}
+  class={className}
+  width={width}
+  height={height}
+  autoplay
+  loop
+  muted
+  playsinline
+  aria-hidden="true"
+>
+  Your browser does not support the video tag.
+</video>

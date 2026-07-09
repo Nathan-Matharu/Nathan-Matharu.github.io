@@ -7,13 +7,16 @@ const navItems = [
   { href: "/projects", label: "Projects" },
   { href: "/publications", label: "Publications" }
 ];
+
+import { Image } from 'astro:assets';
+import icon from '../assets/img/Website.png';
 ---
 
 <header class="site-header" id="site-header">
   <div class="wrapper">
     <a class="site-title" href="/" id="logo-link">
-      <img src="/assets/img/Website.png" alt="Nathan Logo" style="max-width:45px" />
-      <span class="title">Nathan's Website</span>  
+      <Image src={icon} alt="Nathan Logo" width={45} priority />
+      <span class="title">Nathan Matharu</span>  
     </a>
 
     <nav class="site-nav" id="main-navigation">
