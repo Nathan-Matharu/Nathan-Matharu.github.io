@@ -1,13 +1,74 @@
 ---
 layout: ../layouts/Layout.astro
-title: Projects
+title: Nathan Matharu's Projects
 ---
 ## What I'm currently working on
 
+### Neuro-Kinesis (August 2025 - Present)
+I'm working at [Neuro-Kinesis](https://neuro-kinesis.com/), a medical device startup developing a 
+[diagnostic catheter](https://neuro-kinesis.com/technology/huygens-catheter/) with a superior signal-to-noise ratio and thereby 
+greater resolution and fidelity.
 
-### Neuro-Kinesis
-I'm working at [Neuro-Kinesis](https://neuro-kinesis.com/), a medical device startup developing a [diagnostic catheter](https://neuro-kinesis.com/technology/huygens-catheter/) with a superior signal-to-noise ratio and thereby greater resolution and fidelity.
+Key Contributions:
+- My primary role is functioning as the CAD specialist and maintaining engineering drawings. I've spent my time improving and
+automating parts of this process by creating a python package that directly communicates with SOLIDWORKS's API and establishing
+the SOLIDWORKS PDM vault, importing the existing filebase into it.
+- Authored a 10-page Standard Operating Procedure (SOP) for device assembly and packaging
+- Diagnosed non-conforming PCBs through systematic troubleshooting, synthesizing electrical schematics and oscilloscope data to determine 
+and document root cause for engineering review
+- Deployed a SOLIDWORKS PDM vault with SQL Server backend to replace an ad hoc file system, migrating 150+ files
+- Collaborated with an on-site aerospace development team to translate legacy hand-drawn schematic into 3D CAD models
 
-### Personal Projects
-#### Time-Series ML Pipeline for Financial Forecasting
-My Friend and I are working on a project that takes stock and options data, classifies the period as either a bull or bear regime, and then uses regime-specialized models to identify which stocks are going to rise or fall and by how much. This information will then be used in a paper trader.
+### Time-Series ML Pipeline for Financial Forecasting (January 2026 - Present)
+Co-developing an algorithmic trading pipeline that ingests stock and options data to classify market periods into bull or
+bear regimes. The pipeline utilizes regime-specialized models (including LightGBM, LSTM, and RNNs) to forecast price movements and
+execute trades within a paper trading environment.
+
+Working on such a project with a friend has been a rewarding experience. It has given me invaluable experience with messy,
+real-world data and with architecting codebases in a scalable, modular way with a custom Python package.
+
+### Construction (2017 - Present)
+On weekends, I assist with electrical and management tasks at Taj Building Services, our family construction firm. This hands-on
+experience ranges from routing wires, testing, and diagnosing junctions to high-level project management. Navigating live
+construction sites has sharpened my ability to source materials efficiently, schedule cross-dependent tasks, and proactively
+minimize rework in the field.
+
+---
+## Previous Projects
+
+### Semi-Soft Fingers (April 2021 - November 2025)
+My undergraduate and graduate research involved spearheading the soft robotics branch of my [lab](https://valerolab.org/). During 
+this time, I learned the foundations of robotic kinematics, how to apply it to tendon-driven systems, and how to develop 
+manufacturing techniques for silicone casting with functional embedded components. 
+
+This project iterated over three main designs: multi-durometer silicone, PVC-and-dowel, and silicone with 3D-printed bones.
+{/*Add photos here*/}
+
+See more on my [publications page](/publications).
+
+### SC Solar Car Student Design Team (August 2021 - December 2023)
+Over two years with the SC Solar Car Student Design Team, I transitioned from researching carbon fiber shell manufacturing to
+leading the mechanical design of the vehicle's chassis. I conducted structural analysis via SOLIDWORKS FEA and collaborated
+cross-functionally to integrate the mechanical, electrical, and solar systems. Beyond the technical scope, this role was a
+masterclass in project management under tight constraints. Leading a volunteer team of undergraduate engineers required balancing
+aggressive project timelines with the realities of their academic schedules. This experience fundamentally shaped my approach to
+leadership, teaching me how to distribute critical knowledge, allocate resources dynamically, and drive progress through
+inspiration rather than formal authority.
+
+### Hand Tremor Mitigation Device (August - December 2023)
+For the Senior Project of my Biomedical Engineering Bachelor's, I co-designed and 3D printed a prototype to record and 
+mitigate hand tremors with 3 of my peers. This idea originated from my work in my research lab, where I wondered if a cable-driven 
+system could react and ameliorate tremors. This class challenged us to create this medical device from start to finish within a 
+semester. We started with the [MoSCoW method](https://en.wikipedia.org/wiki/MoSCoW_method) and market research, quickly realizing
+that any motors needed to run the system would likely be too heavy or too large to be comfortable for an end user. We pivoted our idea
+to using elastic bands and flex sensors to mitigate and record tremors, respectively. We programmed a state machine in LabVIEW
+and imported the data to Arduino for data analysis. Ultimately, the prototype was unable to successfully mitigate tremors in 
+real-time. We discovered that without a dampening element, the elastic bands were just as likely to amplify tremors as they were 
+to mitigate them. While the academic timeline restricted further mechanical pivots, this outcome provided a critical, hands-on lesson
+in system dynamics, the necessity of robust design inputs, and the importance of output verification
+
+
+## Skills and certifications
+
+### IASSC Lean Six Sigma Green Belt
+<a href="/assets/pdf/iassc Six Sigma Green belt e-cert.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">Electronic Certificate</a>
