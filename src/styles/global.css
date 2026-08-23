@@ -21,6 +21,19 @@
   --font-body: 'Inter', sans-serif;
 }
 
+html {
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--bg-color);
   background-image: url('/assets/img/stars.avif');

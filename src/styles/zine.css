@@ -12,6 +12,19 @@
   --font-zine-body: 'Courier Prime', monospace;
 }
 
+html {
+  background-color: var(--zine-bg);
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--zine-bg);
   background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
