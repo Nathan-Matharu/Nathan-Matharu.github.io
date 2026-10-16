@@ -30,11 +30,15 @@ jobs:
       - run: rm -f dist/CNAME
 
       - name: Force-push dist/ to orphan deploy branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
           cd dist
           git init -b deploy
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Deploy ${GITHUB_SHA}
-          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy
+          git commit -m "Deploy ${GITHUB_SHA}"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          git push --force origin deploy
